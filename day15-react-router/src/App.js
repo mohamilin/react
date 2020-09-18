@@ -6,16 +6,19 @@ import HeaderComponent from './component/HeaderComponent';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Register from './pages/Register';
+import Uppercase from './pages/UpperCase';
 
 
 function App() {
   return (
-    <Router>
+   <div>
+      <Router>
       <div className="App">
         <HeaderComponent/>
         <h1>Halaman Main</h1>
         <Switch>
-          <Route exact path="/" >
+          <Route exact path="/home" >
             <Home/>
           </Route>
           <Route path="/about">
@@ -27,6 +30,9 @@ function App() {
         </Switch>
       </div>
     </Router>
+    <Register /> <br/> <br/>
+    <Uppercase />
+   </div>
   );
 }
 
