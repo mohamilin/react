@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
     flex: '1 0 auto',
   },
   cover: {
-    width: 151,
+    width: 400,
+    height: 250,
   },
   controls: {
     display: 'flex',
@@ -52,10 +53,10 @@ function Container({cart, addProduct, minProduct}) {
         <div className={classes.details}>
           <CardContent className={classes.content}>
             <Typography component="h5" variant="h5">
-              Pizza HOT
+              Pizza HUT
             </Typography>
-            <Typography variant="subtitle1" color="textSecondary">
-              Enak Menggiurkan
+            <Typography variant="p" color="textSecondary">
+             Enak Menggiurkan
             </Typography>
           </CardContent>
           <div className={classes.controls}>

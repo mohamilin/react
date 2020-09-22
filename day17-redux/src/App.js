@@ -1,17 +1,24 @@
 import React from 'react';
-import './App.css';
 
 // Import tambahan:
 import Header from './components/Header';
-import Container from './components/Container';
+import ContainerCart from './components/ContainerCart';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
       <Header/>
-      <Container/>
-    </div>
+      <CssBaseline />
+      <br/> <br/> <br/>
+      <Container maxWidth="sm">
+          <ContainerCart/>
+      </Container>
+    </React.Fragment>
   );
 }
 
