@@ -74,12 +74,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 3. Buat Folder untk setup reduxnya : redux => {actions, reducers, store}. didalam folder2x tsb buat file dengan type : <namafile.namafolder.js> untuk file dalam folder store cukup dengan  <store.js>
 4. Hapus component dalam Index.js dan App.js yang tidak dibuthkan ya....
 
-##### HAPPY CODING <Tode List APP>
+##### HAPPY CODING <Todo List APP>
 ``` js
 
-1. Configurasikan Index.js dengan menambahkan :
+1. `Configurasikan ${Index.js} dengan menambahkan :`
     - <Provider store={store}> .... </Provider>
     - import {Provider} from 'react-redux';
     - import {store} from './redux/store/store';
-2. 
+2. Buat folder component yang didalam 
 
