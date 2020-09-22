@@ -66,3 +66,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+#### DOCUMENTATION
+
+1. Instal react : yarn create react-app <nama app>
+2. Instal Redux : yarn add redux react-redux
+3. Buat Folder untk setup reduxnya : redux => {actions, reducers, store}. didalam folder2x tsb buat file dengan type : <namafile.namafolder.js>
+4. Hapus component yang tidak dibuthkan ya....
+
+##### HAPPY CODING
+
+1. Configurasikan Index.js dengan menambkan :
+    - <Provider store={store}> .... </Provider>
+    - import {provider} from 'react-redux'
