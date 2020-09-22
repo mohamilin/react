@@ -71,15 +71,122 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 1. Instal react : yarn create react-app <nama app>
 2. Instal Redux : yarn add redux react-redux
-3. Buat Folder untk setup reduxnya : redux => {actions, reducers, store}. didalam folder2x tsb buat file dengan type : <namafile.namafolder.js> untuk file dalam folder store cukup dengan  <store.js>
-4. Hapus component dalam Index.js dan App.js yang tidak dibuthkan ya....
+3. Buat Folder untk setup reduxnya : redux => {actions, reducers, store}. didalam folder2x tsb buat file dengan type : <namafile.namafolder.js> untuk file dalam folder store cukup dengan <store.js>
+4. Hapus component dalam Index.js dan App.js yang tidak dibutuhkan ya....
 
-##### HAPPY CODING <Todo List APP>
-``` js
+##### HAPPY CODING <CART FUNCTION>
 
-1. `Configurasikan ${Index.js} dengan menambahkan :`
+```js
+
+1. `Siapkan file-file yang diperlukan :
+    - src/redux/actions/cart.actions.js
+    - src/redux/reducers/cart.reducers.js
+    - src/redux/store/store.js
+    - src/components/Header.js
+    - src/components/Container.js`
+2. `Styling dasar dalam file-file di component `
+. `Hal-hal yang perlu diperhatikan yaitu :
+    - file pada folder actions di export ke reducers kemudian file pada reducer di export ke store
+    -  sehingga kita perlu menyusun konsep dasar bagaimana aplikasi kita kan berjalan.
+    - KONSEP :
+        - Kita akan membuat aplikasi terdiri dari header dan container yang berisikan mengenai fungsi cart dimana ketika kita akan menambahkan jumlah barang pada bagian container secara otomatis akan tampil pada bagian header atau biasanya oada bagian wishlist. `
+
+        `Codingan awal Container.js : `
+        import React from 'react'
+        function Container() {
+            return (
+                <div>
+                    <p>Jumlah barang yang dibeli : </p>
+                    <button>Tambah barang</button>
+                    <button>Kurangi barang</button>
+                </div>
+            )
+        }
+        export default Container
+
+           `Codingan awal Header.js : `
+           import React from 'react'
+            function Header() {
+                return (
+                    <div>
+                        <p>Jumlah Product : </p>
+                    </div>
+                )
+            }
+            export default Header
+
+
+
+        `- Maka dibutuhkan dua buah fungsi untuk counter (menambahkan dan mengurangkan) tapi untuk penguranganya tidak boleh minus ya...
+                action type :
+                    - menambahkan : UP_PRODUCT
+                    - mengurangkan : DOWN_PRODUCT
+                function :
+                    - UP_PRODUCT : addProduct
+                    - DOWN_PRODUCT : minProduct
+    `
+.`Configurasikan Index.js dengan menambahkan :`
     - <Provider store={store}> .... </Provider>
     - import {Provider} from 'react-redux';
     - import {store} from './redux/store/store';
-2. Buat folder component yang didalam 
 
+. `Pada file store.js kita dapat mengimpor file cart.reducers.js :`
+    - import {createStore} from 'redux';
+    - import Cart from '../reducers/cart.reducers';
+    <br/>
+    `- panggil Cart dengan cara berikut :`
+    - export default createStore(Cart);
+
+. `nah, sekarang kita akan lakukan redux pada bagian action terlebh dahulu kemudian pada reducernya... `
+
+    .  `Pada cart.actions.js : `
+        export const UP_PRODUCT = 'UP_PRODUCT'
+        export const DOWN_PRODUCT = 'DOWN_PRODUCT'
+
+        export const addproduct = () => {
+            return {
+                type: UP_PRODUCT,
+            }
+        }
+
+        export const minProduct = () => {
+            return {
+                type: DOWN_PRODUCT,
+            }
+        }
+
+    . `Pada cart.reducers.js`
+        -  `Kita lakukan import terhadap variable UP_PRODUCT dan DOWN_PRODUCT`
+            <br/> `Kemudian memberikannya perintah untuk melakukan penambahan atau penguranganya.`
+        - `Tahap pertama, kita perlu memberikan sebuah nilai default untuk state yang dibuat `
+        - `Tahap kedua, membuat fungsi dengan parameter state yang dibuat dan action didalamnya kita berikan condition (switch) berdasarkan dua case yang telah dibuat pada action  `
+
+        import {UP_PRODUCT, DOWN_PRODUCT } from '../actions/cart.actions';
+
+        const defaultProduct = {
+            cart : 0,
+        }
+
+        const counterProduct = (state = defaultProduct, action) => {
+            switch (action.type) {
+                case UP_PRODUCT:
+                    return {
+                        ...state,
+                        cart : state.cart + 1
+                    }
+                case DOWN_PRODUCT: 
+                    return {    
+                        ...state,
+                        cart : state - 1
+                    }
+                default:
+                    return state;
+            }
+        }
+
+        export default counterProduct;
+
+. `Nah, setelah codingan untuk redux nya selesai, kita kembali ke Container.js dan Header.js untuk menyambungkan dengan redux (istilahanya : connect) `
+
+    .  `Pada Container.js`
+        -  ``
