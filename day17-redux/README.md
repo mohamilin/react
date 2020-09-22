@@ -183,7 +183,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
         export default counterProduct;
 
-7. `Nah, setelah codingan untuk redux nya selesai, kita kembali ke Container.js dan Header.js untuk menyambungkan dengan redux (istilahanya : connect) `
+7. `Nah, setelah codingan untuk redux nya selesai, kita kembali ke Container.js dan Header.js 
+untuk menyambungkan dengan redux (istilahanya : connect) `
 
     7.1.  `Pada Container.js`
         - `import connect dari react-redux dan fungsi dari action type pada cart.action.js`
@@ -202,18 +203,41 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
             import {addProduct, minProduct} from '../redux/actions/cart.actions';
 
             function Container({cart, addProduct, minProduct}) {
-                return (
-                    <div>
-                        <p>Jumlah barang yang dibeli : {cart} </p>
-                        <button onClick = {() => {
-                            addProduct();
-                        }} >Tambah barang</button>
-                        <button onClick={()=> {
-                            minProduct();
-                        }}>Kurangi barang</button>
-                    </div>
-                )
-            }
+            const classes = useStyles();
+            const theme = useTheme();
+        
+            return (
+            <Card className={classes.root}>
+                <div className={classes.details}>
+                <CardContent className={classes.content}>
+                    <Typography component="h5" variant="h5">
+                    Pizza HOT
+                    </Typography>
+                    <Typography variant="subtitle1" color="textSecondary">
+                    Enak Menggiurkan
+                    </Typography>
+                </CardContent>
+                <div className={classes.controls}>
+                    <IconButton aria-label="previous" onClick = {() => {addProduct();  }}>
+                    <  AddCircleIcon/>
+                    </IconButton>
+                    <IconButton aria-label="play/pause">
+                        {cart}
+                    </IconButton>
+                    <IconButton aria-label="next" onClick = {() => {minProduct();  }}>
+                    <RemoveCircleIcon/>
+                    </IconButton>
+                </div>
+                </div>
+                <CardMedia
+                className={classes.cover}
+                image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRG5vm_TDTjc64FO6hlWtL8TlWrG5HxdK5P3g&usqp=CAU"
+                title="Pizza HOT"
+                />
+            </Card>
+            );
+        }
+
 
 
             // agar connect dengan reduxnya
@@ -232,9 +256,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
             };
 
             export default connect(mapStateToProps, mapDispatchToProps) (Container)
-8. `Nah sekarang untuk bagian headernya lebih mudah yaitu tinggal gunakan mapStateToProps untuk memanggil nilainya` 
+8. `Nah sekarang untuk bagian headernya lebih mudah yaitu tinggal gunakan mapStateToProps
+untuk memanggil nilainya`
 `dan jangan lupa connect dengan react-redux nya ya.... liat pada container, kalo bingung.....`
-    - 
+
 
 9. `setelah kita medapatkan sebagaimana yang kita konsepkan di awal tadi... langkah berikutnya adalah styling` 
 
