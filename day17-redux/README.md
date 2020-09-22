@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -65,18 +65,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
 
 #### DOCUMENTATION
 
 1. Instal react : yarn create react-app <nama app>
 2. Instal Redux : yarn add redux react-redux
-3. Buat Folder untk setup reduxnya : redux => {actions, reducers, store}. didalam folder2x tsb buat file dengan type : <namafile.namafolder.js>
-4. Hapus component yang tidak dibuthkan ya....
+3. Buat Folder untk setup reduxnya : redux => {actions, reducers, store}. didalam folder2x tsb buat file dengan type : <namafile.namafolder.js> untuk file dalam folder store cukup dengan  <store.js>
+4. Hapus component dalam Index.js dan App.js yang tidak dibuthkan ya....
 
-##### HAPPY CODING
+##### HAPPY CODING <Tode List APP>
+``` js
 
-1. Configurasikan Index.js dengan menambkan :
-    ``` js
-    - Provider store={store}> .... </Provider>
-    - import {provider} from 'react-redux'
+1. Configurasikan Index.js dengan menambahkan :
+    - <Provider store={store}> .... </Provider>
+    - import {Provider} from 'react-redux';
+    - import {store} from './redux/store/store';
+2. 
+
