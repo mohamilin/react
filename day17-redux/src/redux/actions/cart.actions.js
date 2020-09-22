@@ -1,7 +1,7 @@
 export const UP_PRODUCT = 'UP_PRODUCT'
 export const DOWN_PRODUCT = 'DOWN_PRODUCT'
 
-export const addproduct = () => {
+export const addProduct = () => {
     return {
         type: UP_PRODUCT,
     }

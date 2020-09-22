@@ -1,13 +1,37 @@
 import React from 'react'
+// import tambahan 
 
-function Container() {
+import {connect} from 'react-redux';
+import {addProduct, minProduct} from '../redux/actions/cart.actions';
+
+function Container({cart, addProduct, minProduct}) {
     return (
         <div>
-            <p>Jumlah barang yang dibeli : </p>
-            <button>Tambah barang</button>
-            <button>Kurangi barang</button>
+            <p>Jumlah barang yang dibeli : {cart} </p>
+            <button onClick = {() => {
+                addProduct();
+            }} >Tambah barang</button>
+            <button onClick={()=> {
+                minProduct();
+            }}>Kurangi barang</button>
         </div>
     )
 }
 
-export default Container
+
+// agar connect dengan reduxnya
+const mapStateToProps = ({cart}) => {
+  return {
+    cart : cart
+  }
+}
+
+//agar connect dengan reduxnya dan button bisa berjalan
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addProduct: () => dispatch(addProduct()),
+        minProduct: () => dispatch(minProduct()),
+    };
+  };
+
+export default connect(mapStateToProps, mapDispatchToProps) (Container)

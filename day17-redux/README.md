@@ -85,7 +85,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
     - src/components/Header.js
     - src/components/Container.js`
 2. `Styling dasar dalam file-file di component `
-. `Hal-hal yang perlu diperhatikan yaitu :
+3. `Hal-hal yang perlu diperhatikan yaitu :
     - file pada folder actions di export ke reducers kemudian file pada reducer di export ke store
     -  sehingga kita perlu menyusun konsep dasar bagaimana aplikasi kita kan berjalan.
     - KONSEP :
@@ -115,8 +115,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
             }
             export default Header
 
-
-
         `- Maka dibutuhkan dua buah fungsi untuk counter (menambahkan dan mengurangkan) tapi untuk penguranganya tidak boleh minus ya...
                 action type :
                     - menambahkan : UP_PRODUCT
@@ -125,21 +123,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
                     - UP_PRODUCT : addProduct
                     - DOWN_PRODUCT : minProduct
     `
-.`Configurasikan Index.js dengan menambahkan :`
+4.`Configurasikan Index.js dengan menambahkan :`
     - <Provider store={store}> .... </Provider>
     - import {Provider} from 'react-redux';
     - import {store} from './redux/store/store';
 
-. `Pada file store.js kita dapat mengimpor file cart.reducers.js :`
+5. `Pada file store.js kita dapat mengimpor file cart.reducers.js :`
     - import {createStore} from 'redux';
     - import Cart from '../reducers/cart.reducers';
     <br/>
     `- panggil Cart dengan cara berikut :`
     - export default createStore(Cart);
 
-. `nah, sekarang kita akan lakukan redux pada bagian action terlebh dahulu kemudian pada reducernya... `
+6. `nah, sekarang kita akan lakukan redux pada bagian action terlebh dahulu kemudian pada reducernya... `
 
-    .  `Pada cart.actions.js : `
+    6.1.  `Pada cart.actions.js : `
         export const UP_PRODUCT = 'UP_PRODUCT'
         export const DOWN_PRODUCT = 'DOWN_PRODUCT'
 
@@ -155,7 +153,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
             }
         }
 
-    . `Pada cart.reducers.js`
+    6.2. `Pada cart.reducers.js`
         -  `Kita lakukan import terhadap variable UP_PRODUCT dan DOWN_PRODUCT`
             <br/> `Kemudian memberikannya perintah untuk melakukan penambahan atau penguranganya.`
         - `Tahap pertama, kita perlu memberikan sebuah nilai default untuk state yang dibuat `
@@ -186,7 +184,52 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
         export default counterProduct;
 
-. `Nah, setelah codingan untuk redux nya selesai, kita kembali ke Container.js dan Header.js untuk menyambungkan dengan redux (istilahanya : connect) `
+7. `Nah, setelah codingan untuk redux nya selesai, kita kembali ke Container.js dan Header.js untuk menyambungkan dengan redux (istilahanya : connect) `
 
-    .  `Pada Container.js`
-        -  ``
+    7.1.  `Pada Container.js`
+        - `import connect dari react-redux dan fungsi dari action type pada cart.action.js`
+        - import {connect} from 'react-redux';
+        - import {addProduct, minProducr} from '';
+        - `untuk callback dengan function yang telah dibuat pada reduce gunakan :
+                - mapStateToProps : memanggil value  
+                - mapDispatchToProps : memanggil function addProduct dan minProduct
+        - Kemudian dalam button buat property onClick yang dihubungkan dengan function addProduct dan minProduct
+        - dan jangan lupa untuk panggil argument mapStateToProps dan mapDispatchToProps dengan connect  sehingga : `
+        
+            import React from 'react'
+            // import tambahan 
+
+            import {connect} from 'react-redux';
+            import {addProduct, minProduct} from '../redux/actions/cart.actions';
+
+            function Container({cart, addProduct, minProduct}) {
+                return (
+                    <div>
+                        <p>Jumlah barang yang dibeli : {cart} </p>
+                        <button onClick = {() => {
+                            addProduct();
+                        }} >Tambah barang</button>
+                        <button onClick={()=> {
+                            minProduct();
+                        }}>Kurangi barang</button>
+                    </div>
+                )
+            }
+
+
+            // agar connect dengan reduxnya
+            const mapStateToProps = ({cart}) => {
+            return {
+                cart : cart
+            }
+            }
+
+            //agar connect dengan reduxnya dan button bisa berjalan
+            const mapDispatchToProps = (dispatch) => {
+                return {
+                    addProduct: () => dispatch(addProduct()),
+                    minProduct: () => dispatch(minProduct()),
+                };
+            };
+
+            export default connect(mapStateToProps, mapDispatchToProps) (Container)
