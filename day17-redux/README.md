@@ -131,7 +131,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 5. `Pada file store.js kita dapat mengimpor file cart.reducers.js :`
     - import {createStore} from 'redux';
     - import Cart from '../reducers/cart.reducers';
-    <br/>
     `- panggil Cart dengan cara berikut :`
     - export default createStore(Cart);
 
@@ -155,7 +154,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
     6.2. `Pada cart.reducers.js`
         -  `Kita lakukan import terhadap variable UP_PRODUCT dan DOWN_PRODUCT`
-            <br/> `Kemudian memberikannya perintah untuk melakukan penambahan atau penguranganya.`
+            `Kemudian memberikannya perintah untuk melakukan penambahan atau penguranganya.`
         - `Tahap pertama, kita perlu memberikan sebuah nilai default untuk state yang dibuat `
         - `Tahap kedua, membuat fungsi dengan parameter state yang dibuat dan action didalamnya kita berikan condition (switch) berdasarkan dua case yang telah dibuat pada action  `
 
@@ -233,9 +232,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
             };
 
             export default connect(mapStateToProps, mapDispatchToProps) (Container)
-8. `Nah sekarang untuk bagian headernya lebih mudah yaitu tinggal gunakan mapStateToProps untuk memanggil nilainya`
-<br/> `dan jangan lupa connect dengan react-redux nya ya.... liat pada container, kalo bingung.....`
+8. `Nah sekarang untuk bagian headernya lebih mudah yaitu tinggal gunakan mapStateToProps untuk memanggil nilainya` '\n\n'
+`dan jangan lupa connect dengan react-redux nya ya.... liat pada container, kalo bingung.....`
     - 
 
-9. `setelah kita medapatkan sebagaimana yang kita konsepkan di awal tadi... langkah berikutnya adalah styling` <br/>
+9. `setelah kita medapatkan sebagaimana yang kita konsepkan di awal tadi... langkah berikutnya adalah styling` 
+
     `utk styling bisa gunakan freamwork atau sass/css, suka-suka kalian saja sih, klo saya lebh suka pake material UI.`
