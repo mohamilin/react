@@ -77,5 +77,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ##### HAPPY CODING
 
 1. Configurasikan Index.js dengan menambkan :
-    - {<Provider store={store}> .... </Provider>}
+    - '<'Provider store={store}> .... '</'Provider>
     - import {provider} from 'react-redux'
