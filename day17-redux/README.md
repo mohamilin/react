@@ -233,3 +233,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
             };
 
             export default connect(mapStateToProps, mapDispatchToProps) (Container)
+8. `Nah sekarang untuk bagian headernya lebih mudah yaitu tinggal gunakan mapStateToProps untuk memanggil nilainya`
+<br/> `dan jangan lupa connect dengan react-redux nya ya.... liat pada container, kalo bingung.....`
+    - 
+
+9. `setelah kita medapatkan sebagaimana yang kita konsepkan di awal tadi... langkah berikutnya adalah styling` <br/>
+    `utk styling bisa gunakan freamwork atau sass/css, suka-suka kalian saja sih, klo saya lebh suka pake material UI.`
