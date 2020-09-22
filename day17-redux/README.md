@@ -232,7 +232,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
             };
 
             export default connect(mapStateToProps, mapDispatchToProps) (Container)
-8. `Nah sekarang untuk bagian headernya lebih mudah yaitu tinggal gunakan mapStateToProps untuk memanggil nilainya` '\n\n'
+8. `Nah sekarang untuk bagian headernya lebih mudah yaitu tinggal gunakan mapStateToProps untuk memanggil nilainya` 
 `dan jangan lupa connect dengan react-redux nya ya.... liat pada container, kalo bingung.....`
     - 
 
