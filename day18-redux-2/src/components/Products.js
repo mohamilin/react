@@ -4,7 +4,7 @@ import {getProducts} from '../redux/actions/products.actions';
 
 
 
-function Product(props) {
+function Products(props) {
     console.log('daa', props)
 
     const getProducts = props.getProducts;
@@ -15,22 +15,28 @@ function Product(props) {
 
     return (
         <div>
-            <p>Product : </p>
+            <h1>Produk</h1>
+            {props.product.map((item, index) => (
+                <div key={index}>
+                    <p>Product : {item.name} </p>
+                </div>
+            ))}
         </div>
     )
 }
 
+
 const mapStateToProps = (props) => {
+    console.log("props", props);
     return {
-        product: props.product.dataProduct,
-        isLoading: props.product.isLoading,
-    }
-} 
+      product: props.products.data,
+    };
+  };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getProducts: dispatch(getProducts())
-    }
-}
+        getProducts: () =>  dispatch(getProducts())
+    };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product)
+export default connect(mapStateToProps, mapDispatchToProps)(Products)
