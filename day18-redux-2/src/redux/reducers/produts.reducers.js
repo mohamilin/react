@@ -4,7 +4,7 @@ import {  GET_PRODUCT,
 } from '../actions/products.actions';
 
 const initialState = {
-    data : [],
+    data: [],
     error : null,
     isLoading: false,
 }

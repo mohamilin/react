@@ -3,9 +3,8 @@ import {connect} from 'react-redux';
 import {getProducts} from '../redux/actions/products.actions';
 
 
-
 function Products(props) {
-    console.log('daa', props)
+    console.log('componenet', props)
 
     const getProducts = props.getProducts;
 
@@ -21,15 +20,15 @@ function Products(props) {
                     <p>Product : {item.name} </p>
                 </div>
             ))}
-        </div>
+        </div> 
     )
 }
 
 
 const mapStateToProps = (props) => {
-    console.log("props", props);
+    console.log("data props", props);
     return {
-      product: props.products.data,
+      product: props.productReducers.data,
     };
   };
 
