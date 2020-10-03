@@ -1,5 +1,5 @@
 ### DOCUMENTATION
-```html
+```js
 
 1. Buat sebuah project (nama disesuaikan)
     - Lakukan instalasi pada project tersebut :
