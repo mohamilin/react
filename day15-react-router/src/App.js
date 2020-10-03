@@ -15,7 +15,7 @@ function App() {
    <div>
       <Router>
       <div className="App">
-        <HeaderComponent/>
+        {/* <HeaderComponent/> */}
         <h1>Halaman Main</h1>
         <Switch>
           <Route exact path="/home" >

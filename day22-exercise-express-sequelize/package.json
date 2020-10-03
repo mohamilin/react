@@ -1,0 +1,20 @@
+{
+  "name": "day22-exercise-express-sequelize",
+  "version": "1.0.0",
+  "description": "exercise express and sequelieze",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "author": "amilin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodeman": "^1.1.2"
+  }
+}
