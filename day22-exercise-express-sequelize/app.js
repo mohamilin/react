@@ -1,9 +1,18 @@
 const express = require('express');
 const sequelize = require('./config/db');
 const app = express(); 
-
 const Product = require('./models/Product');
+const Category = require('./models/Category')
 const productRouter = require('./routes/product');
+
+const categoryRouter = require('./routes/category');
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json())
+
+// package tambahan untuk crud 
+
+
 
 // connect with sequelize
 sequelize
@@ -19,7 +28,11 @@ sequelize
 
 
 // for route on browser, call database table products
-app.use('/product', productRouter)
+app.use('/', productRouter)
+app.use('/', categoryRouter)
+
+
+
 
 app.get('/', (req, res) => { 
   res.send('Hello World');
