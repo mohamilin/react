@@ -35,7 +35,14 @@ app.use('/', categoryRouter)
 
 
 app.get('/', (req, res) => { 
-  res.send('Hello World');
+  res.send(
+    `<h1>Link API</h1>
+    /product => get all product <br/>
+    /product/id => get product by id <br/>
+    /category => get all category <br/>
+    /category/id => get category by id
+    ` 
+    );
 }) 
 
 app.listen(3000, () => console.log("server berjalan pada http://localhost:3000"))
