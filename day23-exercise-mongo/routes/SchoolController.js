@@ -60,7 +60,7 @@ app.delete('/school/:id', (req, res) => {
         } else {
             console.log("deleted this data");
             console.log('hasil', result)
-            res.status(204);
+            res.status(200).send('deleted');
         }
     })
 })
